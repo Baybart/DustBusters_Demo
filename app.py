@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import date
 import pandas as pd
 from utils.predictions_utils import *
 from utils.interpolation_vis_app import *
@@ -108,7 +108,7 @@ if st.session_state.loaded:
     #
     ###############################################
 
-    map_obj = plot_interpolation(pred_df, date(2024,3,15), core_data, lon, lat)
+    
 
 
     if use_alternate_viz:
@@ -118,6 +118,7 @@ if st.session_state.loaded:
             components.html(source_code, height=600, width=1000)
 
     else:
+         map_obj = plot_interpolation(pred_df, date(2024,3,15), core_data, lon, lat)
          with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
             source_code = HtmlFile.read()
             components.html(source_code, height=600, width=1000)
