@@ -6,7 +6,7 @@ libpysal
 esda
 seaborn
 folium
-PIL
 scipy
 geopy
 yaml
+PIL
