@@ -137,7 +137,7 @@ if st.session_state.loaded:
     if hotspots_info:
 
         core_data['datetime'] = pd.to_datetime(core_data['datetime'], errors='coerce')
-        core_data_sub = core_data[core_data['datetime'].dt.date == date]
+        core_data_sub = core_data[core_data['datetime'].dt.date == date(2024,3,15)]
 
         localG, p_vals = get_localG(core_data_sub, threshold=0.01)
 
