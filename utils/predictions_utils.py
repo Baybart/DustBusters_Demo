@@ -89,7 +89,7 @@ def get_pred(lat, lon, pm25_df):
     tree = cKDTree(pm25_df[['latitude', 'longitude']])
     distance, index = tree.query([lat, lon])
 
-    return distance < 0.001, pm25_df.iloc[index]
+    return distance < 0.005, pm25_df.iloc[index]
 
 @st.cache_data
 def load_hotspot_info():
