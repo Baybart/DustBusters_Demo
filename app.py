@@ -7,7 +7,7 @@ from utils.hotspot_analysis import *
 import streamlit.components.v1 as components
 
 
-pred_df = pd.read_csv("demo/demo_predictions.csv")
+pred_df = pd.read_csv("./demo_predictions.csv")
 core_data = pd.read_csv("./PM25_sensor_data")
 
 
