@@ -8,7 +8,8 @@ import streamlit.components.v1 as components
 
 if 'loaded' not in st.session_state:
     st.session_state.loaded = False
-
+else:
+    st.session_state.loaded = False
 
 pred_df = pd.read_csv("./demo_predictions.csv")
 core_data = pd.read_csv("./PM25_sensor_data")
