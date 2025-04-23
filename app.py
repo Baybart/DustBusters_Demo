@@ -49,7 +49,7 @@ if submit_button:
     else:
         found, prediction = get_pred(lat, lon, pred_df)
         if found:
-            st.success(f"Prediction: {prediction}")
+            #st.success(f"Prediction: {prediction}")
             st.session_state.loaded = True
         else:
             st.error("Prediction not found.")
