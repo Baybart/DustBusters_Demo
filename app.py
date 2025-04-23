@@ -10,7 +10,7 @@ import streamlit.components.v1 as components
 pred_df = pd.read_csv("./demo_predictions.csv")
 core_data = pd.read_csv("./PM25_sensor_data")
 
-
+print(pred_df.columns)
 
 st.title("PM2.5 Dashboard Demo - March 15 2024")
 
