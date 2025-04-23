@@ -8,5 +8,5 @@ seaborn
 folium
 scipy
 geopy
-yaml
-PIL
+pyyaml
+Pillow
