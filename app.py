@@ -27,6 +27,8 @@ with st.form(key='location_form'):
 
 prediction = None
 
+use_alternate_viz = st.checkbox("Visualize relative PM2.5 levels")
+
 if submit_button:
     try:
         lat, lon = get_coordinates(location_input)
@@ -106,17 +108,17 @@ if st.session_state.loaded:
     #
     ###############################################
 
-    map_obj = plot_interpolation(pred_df, datetime(2024,3,15), core_data, lon, lat)
+    map_obj = plot_interpolation(pred_df, date(2024,3,15), core_data, lon, lat)
 
-    with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
+
+    if use_alternate_viz:
+        map_obj = plot_interpolation_relative(pred_df, date(2024,3,15), core_data, lon, lat)
+        with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
             source_code = HtmlFile.read()
             components.html(source_code, height=600, width=1000)
 
-    use_alternate_viz = st.checkbox("Visualize relative PM2.5 levels")
-
-    if use_alternate_viz:
-        map_obj = plot_interpolation_relative(pred_df, datetime(2024,3,15), core_data, lon, lat)
-        with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
+    else:
+         with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
             source_code = HtmlFile.read()
             components.html(source_code, height=600, width=1000)
 
