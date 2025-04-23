@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+matplotlib
+libpysal
+esda
+seaborn
+folium
+PIL
+scipy
+geopy
+yaml
