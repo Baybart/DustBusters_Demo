@@ -22,6 +22,8 @@ with st.form(key='location_form'):
 #
 ###############################################
 
+prediction = None
+
 if submit_button:
     try:
         lat, lon = get_coordinates(location_input)
