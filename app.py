@@ -29,6 +29,9 @@ prediction = None
 
 use_alternate_viz = st.checkbox("Visualize relative PM2.5 levels")
 
+hotspots_info = st.checkbox("Want to know more about potential hotspots?")
+
+
 if submit_button:
     try:
         lat, lon = get_coordinates(location_input)
@@ -129,8 +132,6 @@ if st.session_state.loaded:
     # Find hotspots
     #
     ###############################################
-
-    hotspots_info = st.checkbox("Want to know more about potential hotspots?")
 
     if hotspots_info:
 
