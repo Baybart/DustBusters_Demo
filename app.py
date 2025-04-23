@@ -6,6 +6,9 @@ from utils.interpolation_vis_app import *
 from utils.hotspot_analysis import *
 import streamlit.components.v1 as components
 
+if 'loaded' not in st.session_state:
+    st.session_state.loaded = False
+
 
 pred_df = pd.read_csv("./demo_predictions.csv")
 core_data = pd.read_csv("./PM25_sensor_data")
