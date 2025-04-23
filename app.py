@@ -38,9 +38,7 @@ if submit_button:
         st.error("Your location is outside the interpolation grid. Please select a different point.")
         st.stop()
     else:
-        pred_df = pd.read_csv("demo/demo_predictions.csv")
         found, prediction = get_pred(lat, lon, pred_df)
-
         if found:
             st.success(f"Prediction: {prediction}")
         else:
@@ -101,7 +99,7 @@ if submit_button:
     #
     ###############################################
 
-    map_obj = plot_interpolation(prediction_df, datetime(2024,3,15), core_data, lon, lat)
+    map_obj = plot_interpolation(pred_df, datetime(2024,3,15), core_data, lon, lat)
 
     with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
             source_code = HtmlFile.read()
@@ -110,7 +108,7 @@ if submit_button:
     use_alternate_viz = st.checkbox("Visualize relative PM2.5 levels")
 
     if use_alternate_viz:
-        map_obj = plot_interpolation_relative(prediction_df, datetime(2024,3,15), core_data, lon, lat)
+        map_obj = plot_interpolation_relative(pred_df, datetime(2024,3,15), core_data, lon, lat)
         with open("houston_kriging_map.html", 'r', encoding='utf-8') as HtmlFile:
             source_code = HtmlFile.read()
             components.html(source_code, height=600, width=1000)
